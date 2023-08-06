@@ -1,0 +1,1 @@
+```docker run -d -p 8089:8081 coffeeshop_app```
