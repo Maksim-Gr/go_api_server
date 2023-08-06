@@ -15,16 +15,22 @@ func main() {
 			"message": "welcome to the coffee shop",
 		})
 	})
-	r.GET("/home", func(c *gin.Context) {
-		c.HTML(http.StatusOK, "index.html", nil)
-
-	})
+	r.GET("/home", coffeeList)
 	r.GET("/coffee", getCoffee)
 	fmt.Println("Staring a web server")
 	r.Run(":8081")
 }
 
+func coffeeList(c *gin.Context) {
+	coffees, _ := coffee.GetCoffees()
+	c.HTML(
+		http.StatusOK,
+		"index.html",
+		gin.H{
+			"list": coffees.List,
+		})
+}
 func getCoffee(c *gin.Context) {
-	coffeeList, _ := coffee.GetCoffees()
-	c.String(http.StatusOK, " %s", coffeeList)
+	coffeelist, _ := coffee.GetCoffees()
+	c.String(http.StatusOK, " %s", coffeelist)
 }

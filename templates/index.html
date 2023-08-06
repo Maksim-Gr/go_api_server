@@ -6,4 +6,13 @@
     <body>
         Welcome to the Coffee shop
     </body>
+    <body>
+    <h1>Menu</h1>
+    <p>
+        {{ range.list}}
+            Name: {{ .Name }},
+            Price: {{ .Price }},
+        {{ end }}
+    </p>
+    </body>
 </html>
