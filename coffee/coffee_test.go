@@ -22,7 +22,7 @@ func TestIsCoffeeAvailable(t *testing.T) {
 		{"lat", false},
 		{"Latte", true},
 		{"", false},
-		{"cappacunio", false},
+		{"cappuccino", false},
 	}
 
 	for _, tc := range cases {

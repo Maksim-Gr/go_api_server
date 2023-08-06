@@ -10,11 +10,7 @@ import (
 func main() {
 	r := gin.Default()
 	r.LoadHTMLGlob("templates/*.html")
-	r.GET("/ping", func(c *gin.Context) {
-		c.JSON(http.StatusOK, gin.H{
-			"message": "welcome to the coffee shop",
-		})
-	})
+	r.GET("/ping", ping)
 	r.GET("/home", coffeeList)
 	r.GET("/coffee", getCoffee)
 	fmt.Println("Staring a web server")
@@ -33,4 +29,10 @@ func coffeeList(c *gin.Context) {
 func getCoffee(c *gin.Context) {
 	coffeelist, _ := coffee.GetCoffees()
 	c.String(http.StatusOK, " %s", coffeelist)
+}
+
+func ping(c *gin.Context) {
+	c.JSON(http.StatusOK, gin.H{
+		"message": "welcome to the coffee-shop",
+	})
 }
