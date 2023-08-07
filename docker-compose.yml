@@ -7,6 +7,6 @@ services:
       env_file:
         - config.env
       volumes:
-        - go-modules:/go/pkg/mod
+        - ./:/app/logs
 volumes:
   go-modules:
