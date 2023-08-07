@@ -1,0 +1,8 @@
+version: '3.0'
+services:
+    coffeeshop:
+      build: coffeeshop_app:latest
+      ports:
+        - "8089:8085"
+      env_file:
+        - config.env
